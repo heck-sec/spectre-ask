@@ -237,45 +237,47 @@ export default function Presentation() {
         </section>
 
         {/* SLIDE 2: Demo Video */}
-        <section className="min-w-full h-full snap-center flex items-center justify-center px-8 relative bg-zinc-950">
+        <section className="min-w-full h-full snap-center overflow-y-auto px-8 relative bg-zinc-950">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-[-15%] left-[15%] w-[45%] h-[45%] bg-violet-600/15 blur-[120px] rounded-full" />
             <div className="absolute bottom-[-15%] right-[10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
           </div>
 
-          <div className="max-w-4xl w-full relative z-10 text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium border border-white/20">
-              <Play className="w-4 h-4" />
-              <span>Product Walkthrough</span>
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-white">
-              See Spectre Ask in action
-            </h2>
-            <p className="text-lg text-zinc-400 max-w-xl mx-auto">
-              A walkthrough of the live chat, in-context data actions, and generated workflows.
-            </p>
+          <div className="min-h-full flex flex-col items-center justify-center">
+            <div className="max-w-4xl w-full relative z-10 text-center space-y-6 pt-16 pb-32">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium border border-white/20">
+                <Play className="w-4 h-4" />
+                <span>Product Walkthrough</span>
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-white">
+                See Spectre Ask in action
+              </h2>
+              <p className="text-lg text-zinc-400 max-w-xl mx-auto">
+                A walkthrough of the live chat, in-context data actions, and generated workflows.
+              </p>
 
-            <div className="bg-black rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl mx-auto">
-              <video
-                controls
-                preload="metadata"
-                className="w-full h-auto max-h-[55vh] bg-black"
-              >
-                <source src="/luminospectre-v3.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+              <div className="bg-black rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl mx-auto">
+                <video
+                  controls
+                  preload="metadata"
+                  className="w-full h-auto max-h-[50vh] bg-black"
+                >
+                  <source src="/luminospectre-v3.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
 
-            <div className="flex items-center justify-center gap-2 text-sm text-zinc-400 pt-2">
-              <span>Full-resolution version, with transcript:</span>
-              <a
-                href="https://next.frame.io/share/aa269a25-4c74-4998-af24-a5b38c2a44d4/view/31ef7352-1cc8-4343-895c-f1e0fb130e61"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-violet-400 hover:text-violet-300 font-medium transition-colors"
-              >
-                Watch on Frame.io <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+              <div className="flex items-center justify-center gap-2 text-sm text-zinc-400 pt-2">
+                <span>Full-resolution version, with transcript:</span>
+                <a
+                  href="https://next.frame.io/share/aa269a25-4c74-4998-af24-a5b38c2a44d4/view/31ef7352-1cc8-4343-895c-f1e0fb130e61"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-violet-400 hover:text-violet-300 font-medium transition-colors"
+                >
+                  Watch on Frame.io <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
