@@ -155,9 +155,15 @@ export default function Presentation() {
                 <span>Spectre Beta</span>
               </div>
               <h1 className="text-5xl lg:text-7xl font-semibold tracking-tight text-zinc-900 leading-[1.1]">
-                Meet <br/><span className="text-violet-600">Lumino Ask.</span>
+                Meet <br/><span className="text-violet-600">Spectre Ask.</span>
               </h1>
-              <p className="text-xl text-zinc-600 leading-relaxed max-w-lg">
+              <div className="flex items-center gap-2 pt-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="text-zinc-900">
+                  <path d="M12 2L22 20H2L12 2Z" />
+                </svg>
+                <span className="text-sm font-medium text-zinc-500">Brought to you by Lumino Technologies Inc.</span>
+              </div>
+              <p className="text-xl text-zinc-600 leading-relaxed max-w-lg mt-4">
                 In-context AI help, live data access, and chat-built workflows for Merchants, Partners, and Admins.
               </p>
               <div className="pt-4 flex gap-4">
