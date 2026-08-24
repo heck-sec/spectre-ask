@@ -18,7 +18,9 @@ import {
   CreditCard,
   Building,
   BarChart3,
-  CheckCircle2
+  CheckCircle2,
+  Play,
+  ExternalLink
 } from "lucide-react";
 
 export default function Presentation() {
@@ -33,7 +35,7 @@ export default function Presentation() {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const totalSlides = 5;
+  const totalSlides = 6;
 
   const scrollToSlide = (index: number) => {
     if (containerRef.current) {
@@ -234,7 +236,51 @@ export default function Presentation() {
           </div>
         </section>
 
-        {/* SLIDE 2: Features - Merchant Focus */}
+        {/* SLIDE 2: Demo Video */}
+        <section className="min-w-full h-full snap-center flex items-center justify-center px-8 relative bg-zinc-950">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-[-15%] left-[15%] w-[45%] h-[45%] bg-violet-600/15 blur-[120px] rounded-full" />
+            <div className="absolute bottom-[-15%] right-[10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
+          </div>
+
+          <div className="max-w-4xl w-full relative z-10 text-center space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium border border-white/20">
+              <Play className="w-4 h-4" />
+              <span>Product Walkthrough</span>
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-white">
+              See Spectre Ask in action
+            </h2>
+            <p className="text-lg text-zinc-400 max-w-xl mx-auto">
+              A walkthrough of the live chat, in-context data actions, and generated workflows.
+            </p>
+
+            <div className="bg-black rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl mx-auto">
+              <video
+                controls
+                preload="metadata"
+                className="w-full h-auto max-h-[55vh] bg-black"
+              >
+                <source src="/luminospectre-v3.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div className="flex items-center justify-center gap-2 text-sm text-zinc-400 pt-2">
+              <span>Full-resolution version, with transcript:</span>
+              <a
+                href="https://next.frame.io/share/aa269a25-4c74-4998-af24-a5b38c2a44d4/view/31ef7352-1cc8-4343-895c-f1e0fb130e61"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-violet-400 hover:text-violet-300 font-medium transition-colors"
+              >
+                Watch on Frame.io <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* SLIDE 3: Features - Merchant Focus */}
         <section className="min-w-full h-full snap-center flex items-center justify-center px-8 relative">
           <div className="max-w-6xl w-full">
             <div className="text-center mb-16 space-y-4">
@@ -282,7 +328,7 @@ export default function Presentation() {
           </div>
         </section>
 
-        {/* SLIDE 3: Interactive Demo Mockup */}
+        {/* SLIDE 4: Interactive Demo Mockup */}
         <section className="min-w-full h-full snap-center flex items-center justify-center px-8 bg-zinc-900 relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-violet-600/20 blur-[120px] rounded-full" />
@@ -389,7 +435,7 @@ export default function Presentation() {
           </div>
         </section>
 
-        {/* SLIDE 4: Architecture & Security */}
+        {/* SLIDE 5: Architecture & Security */}
         <section className="min-w-full h-full snap-center flex items-center justify-center px-8 relative">
           <div className="max-w-6xl w-full">
             <div className="mb-16">
@@ -446,7 +492,7 @@ export default function Presentation() {
           </div>
         </section>
 
-        {/* SLIDE 5: Next Steps */}
+        {/* SLIDE 6: Next Steps */}
         <section className="min-w-full h-full snap-center flex items-center justify-center px-8 relative bg-zinc-50">
           <div className="max-w-3xl w-full text-center space-y-8">
             <div className="w-20 h-20 bg-white border border-zinc-200 rounded-2xl shadow-xl flex items-center justify-center mx-auto mb-8 relative">
