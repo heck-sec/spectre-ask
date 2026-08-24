@@ -106,43 +106,12 @@ export default function Presentation() {
   };
 
   return (
-    <div className="relative h-full w-full bg-zinc-50 text-zinc-900 overflow-hidden font-sans">
-      
-      {/* Slide Controls */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-white/80 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-zinc-200">
-        <button 
-          onClick={() => scrollToSlide(Math.max(0, currentSlide - 1))}
-          disabled={currentSlide === 0}
-          className="p-2 rounded-full hover:bg-zinc-100 disabled:opacity-30 transition-colors"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        
-        <div className="flex gap-2">
-          {Array.from({ length: totalSlides }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => scrollToSlide(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                currentSlide === i ? "bg-violet-600 w-6" : "bg-zinc-300 hover:bg-zinc-400"
-              }`}
-            />
-          ))}
-        </div>
-
-        <button 
-          onClick={() => scrollToSlide(Math.min(totalSlides - 1, currentSlide + 1))}
-          disabled={currentSlide === totalSlides - 1}
-          className="p-2 rounded-full hover:bg-zinc-100 disabled:opacity-30 transition-colors"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
+    <div className="flex h-full w-full flex-col bg-zinc-50 text-zinc-900 font-sans">
 
       {/* Main Container */}
       <div 
         ref={containerRef}
-        className="flex h-full w-full overflow-x-auto snap-x snap-mandatory hide-scrollbar"
+        className="flex flex-1 min-h-0 w-full overflow-x-auto snap-x snap-mandatory hide-scrollbar"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         
@@ -243,8 +212,8 @@ export default function Presentation() {
             <div className="absolute bottom-[-15%] right-[10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
           </div>
 
-          <div className="min-h-full flex flex-col items-center justify-center">
-            <div className="max-w-4xl w-full relative z-10 text-center space-y-6 pt-16 pb-32">
+          <div className="min-h-full flex flex-col items-center justify-center py-8">
+            <div className="max-w-4xl w-full relative z-10 text-center space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium border border-white/20">
                 <Play className="w-4 h-4" />
                 <span>Product Walkthrough</span>
@@ -260,7 +229,7 @@ export default function Presentation() {
                 <video
                   controls
                   preload="metadata"
-                  className="w-full h-auto max-h-[50vh] bg-black"
+                  className="w-full h-auto max-h-[55vh] bg-black"
                 >
                   <source src="/luminospectre-v3.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -535,6 +504,39 @@ export default function Presentation() {
           </div>
         </section>
 
+      </div>
+
+      {/* Slide Controls (footer) */}
+      <div className="shrink-0 flex items-center justify-center bg-zinc-950 border-t border-zinc-800 py-3">
+        <div className="flex items-center gap-4 bg-white/90 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-zinc-200">
+          <button 
+            onClick={() => scrollToSlide(Math.max(0, currentSlide - 1))}
+            disabled={currentSlide === 0}
+            className="p-2 rounded-full hover:bg-zinc-100 disabled:opacity-30 transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          
+          <div className="flex gap-2">
+            {Array.from({ length: totalSlides }).map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollToSlide(i)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  currentSlide === i ? "bg-violet-600 w-6" : "bg-zinc-300 hover:bg-zinc-400"
+                }`}
+              />
+            ))}
+          </div>
+
+          <button 
+            onClick={() => scrollToSlide(Math.min(totalSlides - 1, currentSlide + 1))}
+            disabled={currentSlide === totalSlides - 1}
+            className="p-2 rounded-full hover:bg-zinc-100 disabled:opacity-30 transition-colors"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
       </div>
     </div>
   );
