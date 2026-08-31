@@ -16,10 +16,13 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rm -rf dist",
-    "test": "node --experimental-strip-types --test src/**/*.test.ts"
+    "test": "node --experimental-strip-types --test src/access/resolve.test.ts src/crypto.test.ts"
   },
   "dependencies": {
-    "@spectre-ask/access-contract": "workspace:*"
+    "@noble/ciphers": "^2.4.0",
+    "@noble/hashes": "^2.4.0",
+    "@spectre-ask/access-contract": "workspace:*",
+    "@supabase/supabase-js": "^2.112.4"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -11,18 +11,26 @@ Also the home of the **project & secrets manager** workspace packages (Vault cor
 - OpenRouter only — classify + chat
 - pnpm workspace packages under `packages/`
 
+## Auth
+
+**Default: Clerk** (already wired; matches Lumino).
+
+Self-hosted / less-corporate alternative with orgs + roles + OIDC: **[Zitadel](https://zitadel.com/)** (Apache-2.0). Keep Clerk as the default for Lumino; introduce an auth-provider adapter later if we need Zitadel for HeckSec-only deployments. Do not mix operator roles into Clerk `tenant_access`.
+
 ## Packages
 
 | Package | Role |
 |---------|------|
 | `@spectre-ask/access-contract` | `TenantAccessEntry` + zod — Clerk metadata contract |
-| `@spectre-ask/vault-core` | Framework-free engine: resolve, decrypt-gate, StorageAdapter |
-| `@spectre-ask/vault-api` | Thin helpers for Next routes (Clerk stays in the app) |
-| `@spectre-ask/vault-cli` | `spectre-vault` CLI (sqlite / demos) |
+| `@spectre-ask/vault-core` | Engine: Argon2id→AES-KW→AES-GCM, resolve, decrypt-gate, StorageAdapter |
+| `@spectre-ask/vault-api` | Thin helpers for Next routes |
+| `@spectre-ask/vault-cli` | `spectre-vault` CLI |
 
-Entitlement resolve order: **defaults → tier → grant overrides → parent/tenant ceiling** (`rank` is UI-only). Feature entitlement ≠ decrypt.
+Entitlement resolve: **defaults → tier → grant overrides → parent/tenant ceiling**. Feature entitlement ≠ decrypt.
 
-Migration (Supabase Postgres): `supabase/migrations/20260831_access_tiers_and_features.sql`
+Migrations: `supabase/migrations/`
+- `20260831_access_tiers_and_features.sql`
+- `20260831_vault_blobs.sql`
 
 Plan: `_HECKSEC/_DOCS/_PLANS/LUMINO/SPECTRE_ASK_V1/SECRETS_AND_ACCESS_TIERS_PLAN.md`
 

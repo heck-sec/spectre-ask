@@ -1,8 +1,25 @@
 export {
   SECRET_ENVELOPE_FORMAT,
   SECRET_ENVELOPE_VERSION,
-  createEnvelopeStub,
-  type SecretEnvelopeMeta,
+  UNLOCK_FORMAT,
+  UNLOCK_VERSION,
+  DEFAULT_MEMORY_KIB,
+  DEFAULT_TIME_COST,
+  DEFAULT_PARALLELISM,
+  SESSION_TTL_SECONDS,
+  aesKeyWrap,
+  aesKeyUnwrap,
+  deriveKek,
+  createUnlockEnvelope,
+  unwrapVaultMasterKey,
+  encryptPayload,
+  decryptPayload,
+  sealSecret,
+  openSecret,
+  cryptoCapabilities,
+  type UnlockEnvelope,
+  type EncryptedBlob,
+  type SecretEnvelope,
 } from "./crypto.js";
 
 export type { StorageAdapter, StorageScope, StoredBlob } from "./storage/adapter.js";
