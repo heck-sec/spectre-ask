@@ -4,12 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm -r --filter './packages/*' run build && next build",
+    "build:packages": "pnpm -r --filter './packages/*' run build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "pnpm -r run typecheck",
+    "vault": "pnpm --filter @spectre-ask/vault-cli exec spectre-vault"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.8.0",
+    "@spectre-ask/access-contract": "workspace:*",
+    "@spectre-ask/vault-core": "workspace:*",
     "lucide-react": "^1.33.0",
     "next": "16.3.2",
     "react": "19.2.8",
